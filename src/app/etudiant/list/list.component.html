@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"><app-loupe #idLoupe></app-loupe>Id</th>
+        <th scope="col"><app-loupe (childEvent)="filtrer($event)" #nomLoupe></app-loupe>Nom</th>
+        <th scope="col"><app-loupe #ageLoupe></app-loupe>age</th>
+        <th>Photo</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let etudiant of etudiants">
+      <td>{{etudiant.id}}</td><td>{{etudiant.nom}}</td><td>{{etudiant.age}}</td>
+      <td><img class="photo" src="{{etudiant.photo}}"></td>
+        <td><img class="delete" src="./assets/images/delete.png" (click)="openModal(etudiant)"></td>
+      </tr>
+    </tbody>
+  </table>
