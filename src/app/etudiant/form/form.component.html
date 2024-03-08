@@ -4,6 +4,11 @@
     <H2>Ajouter un étudiant</H2>
     <div class="col">
       <div class="col">
+        <select formControlName="filiere" class="form-select mb-3">
+          <option *ngFor="let filiere of obsFilieres|async" value="{{filiere.id}}">{{filiere.nomFiliere}}</option>
+        </select>
+      </div>
+      <div class="col">
         <input formControlName="id" type="text" class="form-control" placeholder="Id">
       </div>
       <div class="col">
@@ -12,6 +17,10 @@
       <div class="col">
         <input formControlName="age" type="text" class="form-control" placeholder="Age">
       </div>
+      <div class="col">
+        <input (change)="fileSelected($event)" type="file" class="form-control" placeholder="Photo" accept="image/png, image/jpeg">
+      </div>
+
       <div class="col">
         <button (click)="ajouterEtudiant()" type="button" class="btn btn-primary" [disabled]="!formEtudiant.valid">Ajouter</button>
       </div>
